@@ -1,184 +1,973 @@
-.counter {
-  font-size: 16px;
-  padding: 5px 10px;
-  border-radius: 5px;
-  color: var(--accent);
-  background: var(--accent-bg);
-  border: 2px solid transparent;
-  transition: border-color 0.3s;
-  margin-bottom: 24px;
+/* ========================================
+   GITHUB PROFILE ROASTER
+   SOFT DARK UI
+======================================== */
 
-  &:hover {
-    border-color: var(--accent-border);
-  }
-  &:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
+* {
+  box-sizing: border-box;
 }
 
-.hero {
-  position: relative;
+:root {
+  --bg: #f7f7f5;
+  --bg-secondary: #ffffff;
+  --card: #ffffff;
+  --card-hover: #fafafa;
 
-  .base,
-  .framework,
-  .vite {
-    inset-inline: 0;
-    margin: 0 auto;
-  }
+  --border: #dddddd;
 
-  .base {
-    width: 170px;
-    position: relative;
-    z-index: 0;
-  }
+  --text: #111111;
+  --text-secondary: #666666;
+  --text-muted: #999999;
 
-  .framework,
-  .vite {
-    position: absolute;
-  }
+  --accent: #111111;
+  --accent-hover: #333333;
 
-  .framework {
-    z-index: 1;
-    top: 34px;
-    height: 28px;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(44deg) rotateY(39deg)
-      scale(1.4);
-  }
-
-  .vite {
-    z-index: 0;
-    top: 107px;
-    height: 26px;
-    width: auto;
-    transform: perspective(2000px) rotateZ(300deg) rotateX(40deg) rotateY(39deg)
-      scale(0.8);
-  }
+  --danger: #d64545;
 }
 
-#center {
+/* ========================================
+   BODY
+======================================== */
+
+body {
+  margin: 0;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  background: var(--bg);
+  color: var(--text);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ========================================
+   APP
+======================================== */
+
+.app {
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  place-content: center;
-  place-items: center;
-  flex-grow: 1;
-
-  @media (max-width: 1024px) {
-    padding: 32px 20px 24px;
-    gap: 18px;
-  }
 }
 
-#next-steps {
+/* ========================================
+   HEADER
+======================================== */
+
+.header {
+  height: 76px;
+
+  padding: 0 7%;
+
   display: flex;
-  border-top: 1px solid var(--border);
-  text-align: left;
+  align-items: center;
+  justify-content: space-between;
 
-  & > div {
-    flex: 1 1 0;
-    padding: 32px;
-    @media (max-width: 1024px) {
-      padding: 24px 20px;
-    }
-  }
+  background: var(--bg-secondary);
 
-  .icon {
-    margin-bottom: 16px;
-    width: 22px;
-    height: 22px;
-  }
-
-  @media (max-width: 1024px) {
-    flex-direction: column;
-    text-align: center;
-  }
+  border-bottom: 1px solid var(--border);
 }
 
-#docs {
-  border-right: 1px solid var(--border);
-
-  @media (max-width: 1024px) {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
-#next-steps ul {
-  list-style: none;
-  padding: 0;
+.logo {
   display: flex;
-  gap: 8px;
-  margin: 32px 0 0;
+  align-items: center;
 
-  .logo {
-    height: 18px;
-  }
-
-  a {
-    color: var(--text-h);
-    font-size: 16px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 6px 12px;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  @media (max-width: 1024px) {
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    a {
-      width: 100%;
-      justify-content: center;
-      box-sizing: border-box;
-    }
-  }
+  gap: 13px;
 }
 
-#spacer {
-  height: 88px;
-  border-top: 1px solid var(--border);
-  @media (max-width: 1024px) {
-    height: 48px;
-  }
+.logo-mark {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+
+  background: #111111;
+  color: white;
+
+  font-weight: 900;
+  font-size: 20px;
 }
 
-.ticks {
-  position: relative;
+.logo h1 {
+  margin: 0;
+
+  font-size: 19px;
+  font-weight: 800;
+
+  color: var(--text);
+}
+
+.logo p {
+  margin: 4px 0 0;
+
+  font-size: 12px;
+
+  color: var(--text-muted);
+}
+
+.header-badge {
+  padding: 9px 15px;
+
+  border-radius: 20px;
+
+  background: #111111;
+
+  color: white;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   MAIN
+======================================== */
+
+.main-container {
   width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0 6%;
+  flex: 1;
+}
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: -4.5px;
-    border: 5px solid transparent;
+/* ========================================
+   HERO
+======================================== */
+
+.hero {
+  max-width: 900px;
+
+  margin: 120px auto 70px;
+
+  text-align: center;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2.5px;
+
+  color: var(--accent);
+}
+
+/* ========================================
+   HERO TITLE
+======================================== */
+
+.hero h2 {
+  margin: 0;
+
+  font-size: clamp(48px, 7vw, 82px);
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+
+  color: var(--text);
+
+  font-weight: 800;
+}
+
+/* ========================================
+   HERO DESCRIPTION
+======================================== */
+
+.hero > p {
+  max-width: 700px;
+
+  margin: 30px auto 38px;
+
+  color: var(--text-secondary);
+
+  line-height: 1.7;
+
+  font-size: 18px;
+}
+
+/* ========================================
+   SEARCH FORM
+======================================== */
+
+.search-form {
+  max-width: 700px;
+
+  margin: 0 auto;
+}
+
+/* ========================================
+   SEARCH BOX
+======================================== */
+
+.search-box {
+  max-width: 700px;
+
+  margin: 0 auto;
+
+  padding: 8px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.15);
+
+  transition: 0.2s ease;
+}
+
+.search-box:focus-within {
+  border-color: var(--accent);
+
+  box-shadow:
+    0 0 0 3px rgba(167, 139, 250, 0.12);
+}
+
+/* ========================================
+   SEARCH ICON
+======================================== */
+
+.search-icon {
+  width: 45px;
+
+  color: var(--text-muted);
+
+  font-weight: bold;
+
+  font-size: 18px;
+
+  text-align: center;
+}
+
+/* ========================================
+   SEARCH INPUT
+======================================== */
+
+.search-box input {
+  flex: 1;
+
+  min-width: 0;
+
+  border: none;
+
+  outline: none;
+
+  padding: 17px 10px;
+
+  font-size: 18px;
+
+  background: transparent;
+
+  color: var(--text);
+}
+
+.search-box input::placeholder {
+  color: var(--text-muted);
+
+  opacity: 1;
+}
+
+/* ========================================
+   ROAST BUTTON
+======================================== */
+
+.search-box button {
+  border: none;
+  border-radius: 10px;
+
+  padding: 16px 25px;
+
+  background: #111111;
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 16px;
+  font-weight: 800;
+
+  transition: 0.2s ease;
+}
+
+.search-box button:hover {
+  background: #333333;
+}
+
+.search-box button:active {
+  transform: translateY(0);
+}
+
+/* ========================================
+   QUICK SEARCH
+======================================== */
+
+.quick-search {
+  margin-top: 20px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color: var(--text-muted);
+
+  font-size: 14px;
+}
+
+.quick-search button {
+  border: none;
+
+  background: transparent;
+
+  color: var(--accent);
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  padding: 0;
+
+  transition: 0.2s;
+}
+
+.quick-search button:hover {
+  color: var(--accent-hover);
+
+  text-decoration: underline;
+}
+
+/* ========================================
+   EXAMPLE
+======================================== */
+
+.example {
+  margin-top: 18px !important;
+
+  font-size: 14px !important;
+
+  color: var(--text-muted) !important;
+}
+
+/* ========================================
+   ERROR MESSAGE
+======================================== */
+
+.error-message {
+  max-width: 700px;
+
+  margin: 22px auto;
+
+  padding: 15px 20px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 123, 138, 0.1);
+
+  border: 1px solid rgba(255, 123, 138, 0.3);
+
+  color: var(--danger);
+
+  font-size: 14px;
+
+  text-align: center;
+}
+
+/* ========================================
+   PROFILE CARD
+======================================== */
+
+.profile-card {
+  margin-top: 70px;
+
+  padding: 32px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 30px;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+.profile-image-wrapper {
+  flex-shrink: 0;
+}
+
+.profile-image {
+  width: 125px;
+  height: 125px;
+
+  border-radius: 18px;
+
+  object-fit: cover;
+
+  border: 3px solid var(--border);
+}
+
+.profile-content {
+  flex: 1;
+}
+
+.profile-content h2 {
+  margin: 5px 0;
+
+  font-size: 30px;
+
+  color: var(--text);
+}
+
+.username {
+  margin: 0 0 14px;
+
+  color: var(--accent);
+
+  font-size: 15px;
+}
+
+.bio {
+  margin: 0 0 18px;
+
+  max-width: 700px;
+
+  color: var(--text-secondary);
+
+  line-height: 1.7;
+
+  font-size: 15px;
+}
+
+.github-link {
+  display: inline-block;
+
+  padding: 11px 18px;
+
+  border-radius: 9px;
+
+  background: #f1f1ef;
+
+  border: 1px solid #d8d8d5;
+
+  color: #333333;
+
+  text-decoration: none;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  transition: all 0.2s ease;
+}
+
+.github-link:hover {
+  background: #111111;
+
+  border-color: #111111;
+
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+/* ========================================
+   STATS GRID
+======================================== */
+
+.stats-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 15px;
+
+  margin-top: 20px;
+}
+
+.stat-card {
+  padding: 24px;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 15px;
+
+  text-align: center;
+}
+
+.stat-card strong {
+  display: block;
+
+  font-size: 30px;
+
+  color: var(--text);
+}
+
+.stat-card span {
+  display: block;
+
+  margin-top: 7px;
+
+  font-size: 12px;
+
+  color: var(--text-muted);
+
+  text-transform: uppercase;
+
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   SECTIONS
+======================================== */
+
+
+.new-search-section {
+  margin-top: 75px;
+}
+
+
+.repositories-section {
+  margin-top: 65px;
+}
+
+.roast-section {
+  margin-bottom: 55px;
+}
+
+.languages-section {
+  margin-bottom: 55px;
+}
+
+.section-heading {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+}
+
+.section-heading span {
+  font-size: 12px;
+
+  color: var(--accent);
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+.section-heading h2 {
+  margin: 7px 0 0;
+
+  font-size: 32px;
+
+  letter-spacing: -1px;
+
+  color: var(--text);
+}
+
+/* ========================================
+   ROAST GRID
+======================================== */
+
+.roast-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 16px;
+}
+
+.roast-card {
+  padding: 26px;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  color: var(--text-secondary);
+
+  line-height: 1.7;
+}
+
+.roast-card strong {
+  display: block;
+
+  margin-bottom: 10px;
+
+  color: var(--text);
+
+  font-size: 17px;
+}
+
+.roast-card p {
+  margin: 0;
+
+  font-size: 15px;
+}
+
+/* ========================================
+   LANGUAGE CHART
+======================================== */
+
+.language-chart {
+  padding: 28px;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+}
+
+.language-row {
+  margin-bottom: 24px;
+}
+
+.language-row:last-child {
+  margin-bottom: 0;
+}
+
+.language-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 9px;
+}
+
+.language-name {
+  font-size: 14px;
+
+  color: var(--text);
+
+  font-weight: 700;
+}
+
+.language-stats {
+  font-size: 12px;
+
+  color: var(--text-muted);
+}
+
+.language-bar {
+  height: 9px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #414452;
+}
+
+.language-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background: var(--accent);
+
+  transition: width 0.5s ease;
+}
+
+/* ========================================
+   REPOSITORIES
+======================================== */
+
+.repository-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 16px;
+}
+
+.repository-card {
+  padding: 24px;
+
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 16px;
+
+  transition: 0.2s ease;
+}
+
+.repository-card:hover {
+  transform: translateY(-3px);
+
+  background: var(--card-hover);
+
+  border-color: #555a6d;
+}
+
+.repository-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 15px;
+}
+
+.repository-header h3 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 17px;
+}
+
+.repository-header a {
+  color: var(--accent);
+
+  text-decoration: none;
+}
+
+.repository-meta {
+  display: flex;
+
+  gap: 16px;
+
+  margin-top: 16px;
+
+  color: var(--text-muted);
+
+  font-size: 12px;
+}
+
+.repository-updated {
+  margin-top: 13px;
+
+  color: var(--text-muted);
+
+  font-size: 12px;
+}
+
+/* ========================================
+   RESET BUTTON
+======================================== */
+
+.reset-button {
+  display: inline-block;
+
+  padding: 11px 18px;
+
+  border-radius: 9px;
+
+  background: #f1f1ef;
+
+  border: 1px solid #d8d8d5;
+
+  color: #333333;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.reset-button:hover {
+  background: #111111;
+
+  border-color: #111111;
+
+  color: #ffffff;
+
+  transform: translateY(-1px);
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.footer {
+  margin-top: 100px;
+
+  padding: 30px 7%;
+
+  text-align: center;
+
+  border-top: 1px solid var(--border);
+
+  color: var(--text-muted);
+
+  font-size: 12px;
+
+  background: var(--bg-secondary);
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+  .header {
+    padding: 0 20px;
   }
 
-  &::before {
-    left: 0;
-    border-left-color: var(--border);
+  .header-badge {
+    display: none;
   }
-  &::after {
-    right: 0;
-    border-right-color: var(--border);
+
+  .main-container {
+    width: 90%;
   }
+
+  .hero {
+    margin: 80px auto 60px;
+  }
+
+  .hero h2 {
+    font-size: clamp(42px, 12vw, 60px);
+
+    letter-spacing: -2px;
+  }
+
+  .hero > p {
+    font-size: 16px;
+
+    padding: 0 10px;
+  }
+
+  .search-box {
+    flex-wrap: wrap;
+
+    padding: 8px;
+  }
+
+  .search-icon {
+    display: none;
+  }
+
+  .search-box input {
+    width: 100%;
+
+    flex: 1 0 100%;
+
+    font-size: 17px;
+
+    padding: 15px 12px;
+  }
+
+  .search-box button {
+    width: 100%;
+
+    font-size: 16px;
+  }
+
+  .profile-card {
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 25px;
+  }
+
+  .profile-image {
+    width: 105px;
+    height: 105px;
+  }
+
+  .stats-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+  .roast-grid,
+  .repository-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+
+    gap: 15px;
+
+    flex-direction: column;
+  }
+}
+
+
+/* ========================================
+   REPOSITORY DETAILS
+======================================== */
+
+.repository-meta {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  margin-top: 18px;
+
+  color: var(--text-secondary);
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.repository-meta span {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.repository-updated {
+  margin-top: 16px;
+
+  color: var(--text-muted);
+
+  font-size: 13px;
+  font-weight: 500;
 }
